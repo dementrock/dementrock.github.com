@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>DementRock's blog</title>
+  <meta name="author" content="DementRock">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="Test $\LaTeX$. Test Markdown.
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +25,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="DementRock's blog" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -33,11 +34,26 @@
 
 </head>
 
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">DementRock's blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A pursuer of math and science; an admirer of life; a wanderer beyond the sky of wisdom.</h2>
   
 </hgroup>
 
@@ -65,6 +81,44 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/30/hello/">Hello, World</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-30T18:31:00+08:00" pubdate data-updated="true">Dec 30<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Test $\LaTeX$.</p>
+
+<p>Test <em>Markdown</em>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
@@ -77,7 +131,40 @@
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
+      <li class="post">
+        <a href="/blog/2011/12/30/hello/">Hello, world</a>
+      </li>
+    
   </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/dementrock">@dementrock</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'dementrock',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
@@ -91,7 +178,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - Your Name -
+  Copyright &copy; 2011 - DementRock -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
