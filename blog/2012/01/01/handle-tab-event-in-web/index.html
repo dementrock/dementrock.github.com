@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - DementRock's blog</title>
+  <title>Handle Tab Event in Web - DementRock's blog</title>
   <meta name="author" content="DementRock">
 
   
-  <meta name="description" content="Blog Archive 2012 Handle Tab Event in Web
-Jan 01 2012 2011 A Java Package for Solving Pell&#8217;s Equation
-Dec 31 2011 Hello, world
-Dec 30 2011 &hellip;">
+  <meta name="description" content="Problem Handling tab event can be quite annoying, since most browser processes the
+event as moving from one focus to another. Therefore usually &# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ Dec 30 2011 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.rockyduan.com/blog/archives">
+  <link rel="canonical" href="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -94,55 +92,126 @@ MathJax.Hub.Config({
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Handle Tab Event in Web</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-01T18:54:00+08:00" pubdate data-updated="true">Jan 1<span>st</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><h2>Problem</h2>
 
-  
-  <h2>2012</h2>
+<p>Handling tab event can be quite annoying, since most browser processes the
+event as moving from one focus to another. Therefore usually &#8220;keypress&#8221; cannot
+capture the tab key. However a lot of interesting features may depend on this
+key, including the tab-completion feature I was working on.</p>
 
-<article>
-  
-<h1><a href="/blog/2012/01/01/handle-tab-event-in-web/">Handle Tab Event in Web</a></h1>
-<time datetime="2012-01-01T18:54:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>01</span> <span class='year'>2012</span></time>
+<h2>Solution</h2>
 
+<p>If we want to handle the tab event in an input box (assume it has class
+&#8220;cmdinput&#8221;), put another input box right after it (assume it has class
+&#8220;hiddentab&#8221;), and set its CSS as:</p>
 
-</article>
-
-
-
-  
-  <h2>2011</h2>
-
-<article>
-  
-<h1><a href="/blog/2011/12/31/package-pell-eq/">A Java Package for Solving Pell&#8217;s Equation</a></h1>
-<time datetime="2011-12-31T12:35:00+08:00" pubdate><span class='month'>Dec</span> <span class='day'>31</span> <span class='year'>2011</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2011/12/30/hello/">Hello, world</a></h1>
-<time datetime="2011-12-30T18:31:00+08:00" pubdate><span class='month'>Dec</span> <span class='day'>30</span> <span class='year'>2011</span></time>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.hiddentab</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">background-color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>Then we can handle the event using jQuery:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.hiddentab&quot;</span><span class="p">).</span><span class="nx">focus</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.cmdinput&quot;</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
+</span><span class='line'>    <span class="nx">handleTab</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">DementRock</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-01T18:54:00+08:00" pubdate data-updated="true">Jan 1<span>st</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/" data-via="" data-counturl="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/31/package-pell-eq/" title="Previous Post: A Java Package for Solving Pell's Equation">&laquo; A Java Package for Solving Pell's Equation</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -219,7 +288,10 @@ MathJax.Hub.Config({
       var disqus_shortname = 'dementrock';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/';
+        var disqus_url = 'http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

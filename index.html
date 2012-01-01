@@ -9,8 +9,8 @@
   <meta name="author" content="DementRock">
 
   
-  <meta name="description" content="While working on Project Euler problems, I&#8217;ve encountered many problems which
-make use of Pell&#8217;s Equation. Therefore I created this &hellip;">
+  <meta name="description" content="Problem Handling tab event can be quite annoying, since most browser processes the
+event as moving from one focus to another. Therefore usually &# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,6 +93,83 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/01/handle-tab-event-in-web/">Handle Tab Event in Web</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-01T18:54:00+08:00" pubdate data-updated="true">Jan 1<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Problem</h2>
+
+<p>Handling tab event can be quite annoying, since most browser processes the
+event as moving from one focus to another. Therefore usually &#8220;keypress&#8221; cannot
+capture the tab key. However a lot of interesting features may depend on this
+key, including the tab-completion feature I was working on.</p>
+
+<h2>Solution</h2>
+
+<p>If we want to handle the tab event in an input box (assume it has class
+&#8220;cmdinput&#8221;), put another input box right after it (assume it has class
+&#8220;hiddentab&#8221;), and set its CSS as:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.hiddentab</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">background-color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we can handle the event using jQuery:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.hiddentab&quot;</span><span class="p">).</span><span class="nx">focus</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.cmdinput&quot;</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
+</span><span class='line'>    <span class="nx">handleTab</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -433,6 +510,10 @@ programs more conveniently.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/01/handle-tab-event-in-web/">Handle Tab Event in Web</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2011/12/31/package-pell-eq/">A Java Package for Solving Pell&#8217;s Equation</a>
