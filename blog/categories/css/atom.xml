@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CSS | DementRock's blog]]></title>
+  <link href="http://blog.rockyduan.com/blog/categories/css/atom.xml" rel="self"/>
+  <link href="http://blog.rockyduan.com/"/>
+  <updated>2012-01-02T11:03:00+08:00</updated>
+  <id>http://blog.rockyduan.com/</id>
+  <author>
+    <name><![CDATA[DementRock]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Handle Tab Event in Web]]></title>
+    <link href="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/"/>
+    <updated>2012-01-01T18:54:00+08:00</updated>
+    <id>http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web</id>
+    <content type="html"><![CDATA[<h2>Problem</h2>
+
+<p>Handling tab event can be quite annoying, since most browser processes the
+event as moving from one focus to another. Therefore usually "keypress" cannot
+capture the tab key. However a lot of interesting features may depend on this
+key, including the tab-completion feature I was working on.</p>
+
+<h2>Solution</h2>
+
+<p>If we want to handle the tab event in an input box (assume it has class
+"cmdinput"), put another input box right after it (assume it has class
+"hiddentab"), and set its CSS as:</p>
+
+<p><code>css
+.hiddentab {
+  background-color: black;
+  border: none;
+  width: 0px;
+  height: 0px;
+  padding: 2px; /* updated Jan.02 */
+}
+</code></p>
+
+<p>Then we can handle the event using jQuery:</p>
+
+<p>``` javascript
+$(".hiddentab").focus = function() {</p>
+
+<pre><code>$(".cmdinput").focus();
+handleTab();
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
