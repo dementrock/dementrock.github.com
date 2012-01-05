@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ACM Solutions - DementRock's blog</title>
+  <title>A Trick for LaTeX - DementRock's blog</title>
   <meta name="author" content="DementRock">
 
   
-  <meta name="description" content="ACM Solutions Jan 5th, 2012 UVa Online Judge 10000 10001 Jan 5th, 2012 Tweet Comments Please enable JavaScript to view the comments powered by &hellip;">
+  <meta name="description" content="After using LaTeX to do homework for a semester, I created many shortcuts that make it much easier for me to type complicated formula. Here I share &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.rockyduan.com/acmsolutions">
+  <link rel="canonical" href="http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -92,35 +92,15 @@ MathJax.Hub.Config({
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">ACM Solutions</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-05T13:19:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time></p>
-  </header>
-  
-  <h2 id='uva_online_judge'>UVa Online Judge</h2>
-
-<p><a href='/acmsolutions/uva/10000.html'>10000</a></p>
-
-<p><a href='/acmsolutions/uva/10001.html'>10001</a></p>
-  
-    <footer>
+    
+      <h1 class="entry-title">A Trick for LaTeX</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -132,21 +112,85 @@ MathJax.Hub.Config({
   
 
 
-<time datetime="2012-01-05T13:19:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
+<time datetime="2012-01-05T16:33:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>After using LaTeX to do homework for a semester, I created many shortcuts that make it much easier for me to type complicated formula. Here I share one of my tricks which can be easily generalized.</p>
+
+<p>Environments enclosed in \begin and \end are often annoying to type. We can define a macro to simplify it. For example, I frequently use the environment &#8220;equation*&#8221;. We can define a macro</p>
+<figure class='code'><figcaption><span /></figcaption><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class='k'>\newcommand</span><span class='nb'>{</span><span class='k'>\seq</span><span class='nb'>}</span>[1]<span class='nb'>{</span><span class='k'>\begin</span><span class='nb'>{</span>eqnarray*<span class='nb'>}</span>#1<span class='k'>\end</span><span class='nb'>{</span>eqnarray*<span class='nb'>}}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>Then we can type a formula by</p>
+<figure class='code'><figcaption><span /></figcaption><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class='k'>\seqnarray</span><span class='nb'>{</span>
+</span><span class='line'>|x<span class='nb'>_</span>n - x<span class='nb'>_</span>m| <span class='nb'>&amp;</span>=<span class='nb'>&amp;</span> |x<span class='nb'>_{</span>m+k<span class='nb'>}</span> - x<span class='nb'>_{</span>m<span class='nb'>}</span>| = |x<span class='nb'>_{</span>m+k<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span> + x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-2<span class='nb'>}</span> + <span class='k'>\cdots</span> + x<span class='nb'>_{</span>m+1<span class='nb'>}</span> - x<span class='nb'>_</span>m| <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span><span class='k'>\leq</span><span class='nb'>&amp;</span> |x<span class='nb'>_{</span>m+k<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span>| + |x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-2<span class='nb'>}</span>| + <span class='k'>\cdots</span> + |x<span class='nb'>_{</span>m+1<span class='nb'>}</span> - x<span class='nb'>_</span>m| <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span><span class='k'>\leq</span><span class='nb'>&amp;</span> |x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1| (C<span class='nb'>^{</span>m+k-2<span class='nb'>}</span> + C<span class='nb'>^{</span>m+k-3<span class='nb'>}</span> + <span class='k'>\cdots</span> + C<span class='nb'>^{</span>m-1<span class='nb'>}</span>) <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span>=<span class='nb'>&amp;</span> |x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1| C<span class='nb'>^{</span>m-1<span class='nb'>}</span> (C<span class='nb'>^{</span>k-1<span class='nb'>}</span> + C<span class='nb'>^{</span>k-2<span class='nb'>}</span> + <span class='k'>\cdots</span> + 1) <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span>=<span class='nb'>&amp;</span> |x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1| C<span class='nb'>^{</span>m-1<span class='nb'>}</span> <span class='k'>\frac</span><span class='nb'>{</span>1 - C<span class='nb'>^</span>k<span class='nb'>}{</span>1 - C<span class='nb'>}</span> &lt; <span class='k'>\frac</span><span class='nb'>{</span>|x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1|C<span class='nb'>^{</span>M-1<span class='nb'>}}{</span>1 - C<span class='nb'>}</span>
+</span><span class='line'><span class='nb'>}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>The same trick can be applied to all other environments to obtain a C-style command.</p></div>
+
+
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.rockyduan.com/acmsolutions/index.html" data-via="" data-counturl="http://blog.rockyduan.com/acmsolutions/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">DementRock</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-05T16:33:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/latex/'>LaTeX</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex/" data-via="" data-counturl="http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex/" >Tweet</a>
   
   
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/2012/01/01/2012-begins/" title="Previous Post: 2012 Begins">&laquo; 2012 Begins</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -235,8 +279,8 @@ MathJax.Hub.Config({
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.rockyduan.com/acmsolutions/index.html';
-        var disqus_url = 'http://blog.rockyduan.com/acmsolutions/index.html';
+        var disqus_identifier = 'http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex/';
+        var disqus_url = 'http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex/';
         var disqus_script = 'embed.js';
       
     (function () {

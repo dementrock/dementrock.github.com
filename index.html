@@ -9,7 +9,7 @@
   <meta name="author" content="DementRock">
 
   
-  <meta name="description" content="I haven&#8217;t written such a thing as an annual summary for a very long time. It&#8217;s not that I&#8217;ve been busy, but I&#8217;m simply too &hellip;">
+  <meta name="description" content="After using LaTeX to do homework for a semester, I created many shortcuts that make it much easier for me to type complicated formula. Here I share &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,6 +93,63 @@ MathJax.Hub.Config({
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/05/a-trick-for-latex/">A Trick for LaTeX</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-05T16:33:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After using LaTeX to do homework for a semester, I created many shortcuts that make it much easier for me to type complicated formula. Here I share one of my tricks which can be easily generalized.</p>
+
+<p>Environments enclosed in \begin and \end are often annoying to type. We can define a macro to simplify it. For example, I frequently use the environment &#8220;equation*&#8221;. We can define a macro</p>
+<figure class='code'><figcaption><span /></figcaption><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class='k'>\newcommand</span><span class='nb'>{</span><span class='k'>\seq</span><span class='nb'>}</span>[1]<span class='nb'>{</span><span class='k'>\begin</span><span class='nb'>{</span>eqnarray*<span class='nb'>}</span>#1<span class='k'>\end</span><span class='nb'>{</span>eqnarray*<span class='nb'>}}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>Then we can type a formula by</p>
+<figure class='code'><figcaption><span /></figcaption><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class='k'>\seqnarray</span><span class='nb'>{</span>
+</span><span class='line'>|x<span class='nb'>_</span>n - x<span class='nb'>_</span>m| <span class='nb'>&amp;</span>=<span class='nb'>&amp;</span> |x<span class='nb'>_{</span>m+k<span class='nb'>}</span> - x<span class='nb'>_{</span>m<span class='nb'>}</span>| = |x<span class='nb'>_{</span>m+k<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span> + x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-2<span class='nb'>}</span> + <span class='k'>\cdots</span> + x<span class='nb'>_{</span>m+1<span class='nb'>}</span> - x<span class='nb'>_</span>m| <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span><span class='k'>\leq</span><span class='nb'>&amp;</span> |x<span class='nb'>_{</span>m+k<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span>| + |x<span class='nb'>_{</span>m+k-1<span class='nb'>}</span> - x<span class='nb'>_{</span>m+k-2<span class='nb'>}</span>| + <span class='k'>\cdots</span> + |x<span class='nb'>_{</span>m+1<span class='nb'>}</span> - x<span class='nb'>_</span>m| <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span><span class='k'>\leq</span><span class='nb'>&amp;</span> |x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1| (C<span class='nb'>^{</span>m+k-2<span class='nb'>}</span> + C<span class='nb'>^{</span>m+k-3<span class='nb'>}</span> + <span class='k'>\cdots</span> + C<span class='nb'>^{</span>m-1<span class='nb'>}</span>) <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span>=<span class='nb'>&amp;</span> |x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1| C<span class='nb'>^{</span>m-1<span class='nb'>}</span> (C<span class='nb'>^{</span>k-1<span class='nb'>}</span> + C<span class='nb'>^{</span>k-2<span class='nb'>}</span> + <span class='k'>\cdots</span> + 1) <span class='k'>\\</span>
+</span><span class='line'>            <span class='nb'>&amp;</span>=<span class='nb'>&amp;</span> |x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1| C<span class='nb'>^{</span>m-1<span class='nb'>}</span> <span class='k'>\frac</span><span class='nb'>{</span>1 - C<span class='nb'>^</span>k<span class='nb'>}{</span>1 - C<span class='nb'>}</span> &lt; <span class='k'>\frac</span><span class='nb'>{</span>|x<span class='nb'>_</span>2 - x<span class='nb'>_</span>1|C<span class='nb'>^{</span>M-1<span class='nb'>}}{</span>1 - C<span class='nb'>}</span>
+</span><span class='line'><span class='nb'>}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>The same trick can be applied to all other environments to obtain a C-style command.</p></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -553,6 +610,10 @@ MathJax.Hub.Config({
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/05/a-trick-for-latex/">A Trick for LaTeX</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/01/01/2012-begins/">2012 Begins</a>
