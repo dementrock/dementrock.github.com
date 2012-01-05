@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | DementRock's blog]]></title>
   <link href="http://blog.rockyduan.com/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://blog.rockyduan.com/"/>
-  <updated>2012-01-02T11:03:00+08:00</updated>
+  <updated>2012-01-05T16:11:54+08:00</updated>
   <id>http://blog.rockyduan.com/</id>
   <author>
     <name><![CDATA[DementRock]]></name>
@@ -18,9 +18,7 @@
     <link href="http://blog.rockyduan.com/blog/2011/12/31/package-pell-eq/"/>
     <updated>2011-12-31T12:35:00+08:00</updated>
     <id>http://blog.rockyduan.com/blog/2011/12/31/package-pell-eq</id>
-    <content type="html"><![CDATA[<p>While working on Project Euler problems, I've encountered many problems which
-make use of Pell's Equation. Therefore I created this package to write these
-programs more conveniently.</p>
+    <content type="html"><![CDATA[<p>While working on Project Euler problems, I&#8217;ve encountered many problems which make use of Pell&#8217;s Equation. Therefore I created this package to write these programs more conveniently.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (PellSolver.java)</span> <a href='/downloads/code/PellSolver.java'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -271,8 +269,7 @@ programs more conveniently.</p>
 </span><span class='line'>        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
 </span><span class='line'>    <span class="o">}</span>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>]]></content>
   </entry>
   
 </feed>

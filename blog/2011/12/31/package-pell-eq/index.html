@@ -9,8 +9,7 @@
   <meta name="author" content="DementRock">
 
   
-  <meta name="description" content="While working on Project Euler problems, I&#8217;ve encountered many problems which
-make use of Pell&#8217;s Equation. Therefore I created this &hellip;">
+  <meta name="description" content="While working on Project Euler problems, I&#8217;ve encountered many problems which make use of Pell&#8217;s Equation. Therefore I created this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -46,21 +45,7 @@ make use of Pell&#8217;s Equation. Therefore I created this &hellip;">
 
 </head>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript" src="http://latex.mathoverflow.net/mathjax1.1/MathJax.js?config=MOconfig"></script>
 <body   >
   <header role="banner"><hgroup>
   <h1><a href="/">DementRock's blog</a></h1>
@@ -86,6 +71,7 @@ MathJax.Hub.Config({
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
   <li><a href="/daydreams/index.html">Day Dreams</a></li>
+  <li><a href="/acmsolutions/index.html">ACM Solutions</a></li>
 </ul>
 
 </nav>
@@ -119,12 +105,9 @@ MathJax.Hub.Config({
   </header>
 
 
-<div class="entry-content"><p>While working on Project Euler problems, I&#8217;ve encountered many problems which
-make use of Pell&#8217;s Equation. Therefore I created this package to write these
-programs more conveniently.</p>
-
+<div class="entry-content"><p>While working on Project Euler problems, I&#8217;ve encountered many problems which make use of Pell&#8217;s Equation. Therefore I created this package to write these programs more conveniently.</p>
 <figure class='code'><figcaption><span> (PellSolver.java)</span> <a href='/downloads/code/PellSolver.java'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+ <div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -248,133 +231,131 @@ programs more conveniently.</p>
 <span class='line-number'>122</span>
 <span class='line-number'>123</span>
 <span class='line-number'>124</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">acm</span><span class="o">;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class='kn'>package</span> <span class='n'>acm</span><span class='o'>;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="o">;</span>
+</span><span class='line'><span class='kn'>import</span> <span class='nn'>java.math.BigInteger</span><span class='o'>;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kd">class</span> <span class="nc">Quadratic</span> <span class="o">{</span>
+</span><span class='line'><span class='kd'>class</span> <span class='nc'>Quadratic</span> <span class='o'>{</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">d</span><span class="o">;</span> <span class="c1">// Fraction (a*sqrt(b) + c) / d</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='kt'>int</span> <span class='n'>a</span><span class='o'>,</span> <span class='n'>b</span><span class='o'>,</span> <span class='n'>c</span><span class='o'>,</span> <span class='n'>d</span><span class='o'>;</span> <span class='c1'>// Fraction (a*sqrt(b) + c) / d</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">gcd</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">y</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nf">gcd</span> <span class="o">(</span><span class="n">y</span> <span class="o">%</span> <span class="n">x</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>int</span> <span class='nf'>gcd</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>x</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>y</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>if</span> <span class='o'>(</span><span class='n'>x</span> <span class='o'>==</span> <span class='mi'>0</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>            <span class='k'>return</span> <span class='n'>y</span><span class='o'>;</span>
+</span><span class='line'>        <span class='o'>}</span>
+</span><span class='line'>        <span class='k'>return</span> <span class='nf'>gcd</span> <span class='o'>(</span><span class='n'>y</span> <span class='o'>%</span> <span class='n'>x</span><span class='o'>,</span> <span class='n'>x</span><span class='o'>);</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">Quadratic</span> <span class="o">(</span><span class="kt">int</span> <span class="n">raw_a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">raw_b</span><span class="o">,</span> <span class="kt">int</span> <span class="n">raw_c</span><span class="o">,</span> <span class="kt">int</span> <span class="n">raw_d</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">common</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">(</span><span class="n">gcd</span><span class="o">(</span><span class="n">raw_a</span><span class="o">,</span> <span class="n">raw_c</span><span class="o">),</span> <span class="n">raw_d</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">a</span> <span class="o">=</span> <span class="n">raw_a</span> <span class="o">/</span> <span class="n">common</span><span class="o">;</span>
-</span><span class='line'>        <span class="n">b</span> <span class="o">=</span> <span class="n">raw_b</span><span class="o">;</span>
-</span><span class='line'>        <span class="n">c</span> <span class="o">=</span> <span class="n">raw_c</span> <span class="o">/</span> <span class="n">common</span><span class="o">;</span>
-</span><span class='line'>        <span class="n">d</span> <span class="o">=</span> <span class="n">raw_d</span> <span class="o">/</span> <span class="n">common</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='nf'>Quadratic</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>raw_a</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>raw_b</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>raw_c</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>raw_d</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='kt'>int</span> <span class='n'>common</span> <span class='o'>=</span> <span class='n'>gcd</span><span class='o'>(</span><span class='n'>gcd</span><span class='o'>(</span><span class='n'>raw_a</span><span class='o'>,</span> <span class='n'>raw_c</span><span class='o'>),</span> <span class='n'>raw_d</span><span class='o'>);</span>
+</span><span class='line'>        <span class='n'>a</span> <span class='o'>=</span> <span class='n'>raw_a</span> <span class='o'>/</span> <span class='n'>common</span><span class='o'>;</span>
+</span><span class='line'>        <span class='n'>b</span> <span class='o'>=</span> <span class='n'>raw_b</span><span class='o'>;</span>
+</span><span class='line'>        <span class='n'>c</span> <span class='o'>=</span> <span class='n'>raw_c</span> <span class='o'>/</span> <span class='n'>common</span><span class='o'>;</span>
+</span><span class='line'>        <span class='n'>d</span> <span class='o'>=</span> <span class='n'>raw_d</span> <span class='o'>/</span> <span class='n'>common</span><span class='o'>;</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getInt</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">((</span><span class="n">a</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">b</span><span class="o">)</span> <span class="o">+</span> <span class="n">c</span><span class="o">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='kt'>int</span> <span class='nf'>getInt</span><span class='o'>()</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>return</span> <span class='o'>(</span><span class='kt'>int</span><span class='o'>)</span> <span class='o'>((</span><span class='n'>a</span> <span class='o'>*</span> <span class='n'>Math</span><span class='o'>.</span><span class='na'>sqrt</span><span class='o'>(</span><span class='n'>b</span><span class='o'>)</span> <span class='o'>+</span> <span class='n'>c</span><span class='o'>)</span> <span class='o'>/</span> <span class='n'>d</span><span class='o'>);</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">Quadratic</span> <span class="nf">getNext</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">new_a</span> <span class="o">=</span> <span class="n">a</span><span class="o">,</span> <span class="n">new_b</span> <span class="o">=</span> <span class="n">b</span><span class="o">,</span> <span class="n">new_c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="n">d</span> <span class="o">*</span> <span class="n">getInt</span><span class="o">(),</span> <span class="n">new_d</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">Quadratic</span><span class="o">(</span><span class="n">new_a</span> <span class="o">*</span> <span class="n">new_d</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="o">-</span> <span class="n">new_c</span> <span class="o">*</span> <span class="n">new_d</span><span class="o">,</span> <span class="n">new_a</span> <span class="o">*</span> <span class="n">new_a</span> <span class="o">*</span> <span class="n">new_b</span> <span class="o">-</span> <span class="n">new_c</span> <span class="o">*</span> <span class="n">new_c</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='n'>Quadratic</span> <span class='nf'>getNext</span><span class='o'>()</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='kt'>int</span> <span class='n'>new_a</span> <span class='o'>=</span> <span class='n'>a</span><span class='o'>,</span> <span class='n'>new_b</span> <span class='o'>=</span> <span class='n'>b</span><span class='o'>,</span> <span class='n'>new_c</span> <span class='o'>=</span> <span class='n'>c</span> <span class='o'>-</span> <span class='n'>d</span> <span class='o'>*</span> <span class='n'>getInt</span><span class='o'>(),</span> <span class='n'>new_d</span> <span class='o'>=</span> <span class='n'>d</span><span class='o'>;</span>
+</span><span class='line'>        <span class='k'>return</span> <span class='k'>new</span> <span class='nf'>Quadratic</span><span class='o'>(</span><span class='n'>new_a</span> <span class='o'>*</span> <span class='n'>new_d</span><span class='o'>,</span> <span class='n'>b</span><span class='o'>,</span> <span class='o'>-</span> <span class='n'>new_c</span> <span class='o'>*</span> <span class='n'>new_d</span><span class='o'>,</span> <span class='n'>new_a</span> <span class='o'>*</span> <span class='n'>new_a</span> <span class='o'>*</span> <span class='n'>new_b</span> <span class='o'>-</span> <span class='n'>new_c</span> <span class='o'>*</span> <span class='n'>new_c</span><span class='o'>);</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;(%d*sqrt(%d) + %d) / %d&quot;</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">d</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='n'>String</span> <span class='nf'>toString</span><span class='o'>()</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>return</span> <span class='n'>String</span><span class='o'>.</span><span class='na'>format</span><span class='o'>(</span><span class='s'>&quot;(%d*sqrt(%d) + %d) / %d&quot;</span><span class='o'>,</span> <span class='n'>a</span><span class='o'>,</span> <span class='n'>b</span><span class='o'>,</span> <span class='n'>c</span><span class='o'>,</span> <span class='n'>d</span><span class='o'>);</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span> <span class="o">(</span><span class="n">Quadratic</span> <span class="n">other</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">a</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="na">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="na">b</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="na">c</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="na">d</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='kt'>boolean</span> <span class='nf'>equals</span> <span class='o'>(</span><span class='n'>Quadratic</span> <span class='n'>other</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>return</span> <span class='n'>a</span> <span class='o'>==</span> <span class='n'>other</span><span class='o'>.</span><span class='na'>a</span> <span class='o'>&amp;&amp;</span> <span class='n'>b</span> <span class='o'>==</span> <span class='n'>other</span><span class='o'>.</span><span class='na'>b</span> <span class='o'>&amp;&amp;</span> <span class='n'>c</span> <span class='o'>==</span> <span class='n'>other</span><span class='o'>.</span><span class='na'>c</span> <span class='o'>&amp;&amp;</span> <span class='n'>d</span> <span class='o'>==</span> <span class='n'>other</span><span class='o'>.</span><span class='na'>d</span><span class='o'>;</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">period</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">Quadratic</span><span class="o">[]</span> <span class="n">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Quadratic</span><span class="o">[</span><span class="mi">10000</span><span class="o">];</span>
-</span><span class='line'>        <span class="n">Quadratic</span> <span class="n">x</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">now</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-</span><span class='line'>        <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="o">++</span><span class="n">now</span><span class="o">;</span>
-</span><span class='line'>            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">now</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="k">if</span> <span class="o">(</span><span class="n">x</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">cache</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span> <span class="o">{</span>
-</span><span class='line'>                    <span class="k">return</span> <span class="n">now</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-</span><span class='line'>                <span class="o">}</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>            <span class="n">x</span> <span class="o">=</span> <span class="n">cache</span><span class="o">[</span><span class="n">now</span><span class="o">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='kt'>int</span> <span class='nf'>period</span><span class='o'>()</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='n'>Quadratic</span><span class='o'>[]</span> <span class='n'>cache</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>Quadratic</span><span class='o'>[</span><span class='mi'>10000</span><span class='o'>];</span>
+</span><span class='line'>        <span class='n'>Quadratic</span> <span class='n'>x</span> <span class='o'>=</span> <span class='k'>this</span><span class='o'>;</span>
+</span><span class='line'>        <span class='kt'>int</span> <span class='n'>now</span> <span class='o'>=</span> <span class='o'>-</span><span class='mi'>1</span><span class='o'>;</span>
+</span><span class='line'>        <span class='k'>while</span> <span class='o'>(</span><span class='kc'>true</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>            <span class='o'>++</span><span class='n'>now</span><span class='o'>;</span>
+</span><span class='line'>            <span class='k'>for</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='o'>;</span> <span class='n'>i</span> <span class='o'>&lt;</span> <span class='n'>now</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>;</span> <span class='o'>++</span><span class='n'>i</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>                <span class='k'>if</span> <span class='o'>(</span><span class='n'>x</span><span class='o'>.</span><span class='na'>equals</span><span class='o'>(</span><span class='n'>cache</span><span class='o'>[</span><span class='n'>i</span><span class='o'>]))</span> <span class='o'>{</span>
+</span><span class='line'>                    <span class='k'>return</span> <span class='n'>now</span> <span class='o'>-</span> <span class='n'>i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>;</span>
+</span><span class='line'>                <span class='o'>}</span>
+</span><span class='line'>            <span class='o'>}</span>
+</span><span class='line'>            <span class='n'>x</span> <span class='o'>=</span> <span class='n'>cache</span><span class='o'>[</span><span class='n'>now</span><span class='o'>]</span> <span class='o'>=</span> <span class='n'>x</span><span class='o'>.</span><span class='na'>getNext</span><span class='o'>();</span>
+</span><span class='line'>        <span class='o'>}</span>
+</span><span class='line'>    <span class='o'>}</span>
+</span><span class='line'><span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'><span class="cm">/* Solve equation of the form x^2 - dy^2 = c, where c = 1 or c = -1. */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PellSolver</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">d</span><span class="o">;</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">c</span><span class="o">;</span> <span class="c1">// Must be 1 or -1</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Quadratic</span> <span class="n">now</span><span class="o">;</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">period</span><span class="o">;</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">prevIndex</span><span class="o">;</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">solvable</span><span class="o">;</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">BigInteger</span><span class="o">[]</span> <span class="n">p</span><span class="o">;</span> <span class="c1">// Store intermediate values of denominator</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">BigInteger</span><span class="o">[]</span> <span class="n">q</span><span class="o">;</span> <span class="c1">// nominator</span>
+</span><span class='line'><span class='cm'>/* Solve equation of the form x^2 - dy^2 = c, where c = 1 or c = -1. */</span>
+</span><span class='line'><span class='kd'>public</span> <span class='kd'>class</span> <span class='nc'>PellSolver</span> <span class='o'>{</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>int</span> <span class='n'>d</span><span class='o'>;</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>int</span> <span class='n'>c</span><span class='o'>;</span> <span class='c1'>// Must be 1 or -1</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='n'>Quadratic</span> <span class='n'>now</span><span class='o'>;</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>int</span> <span class='n'>period</span><span class='o'>;</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>int</span> <span class='n'>prevIndex</span><span class='o'>;</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>boolean</span> <span class='n'>solvable</span><span class='o'>;</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='n'>BigInteger</span><span class='o'>[]</span> <span class='n'>p</span><span class='o'>;</span> <span class='c1'>// Store intermediate values of denominator</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='n'>BigInteger</span><span class='o'>[]</span> <span class='n'>q</span><span class='o'>;</span> <span class='c1'>// nominator</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">PellSolver</span> <span class="o">(</span><span class="kt">int</span> <span class="n">d</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">d</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="mi">1000</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='nf'>PellSolver</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>d</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>c</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>this</span><span class='o'>.</span><span class='na'>init</span><span class='o'>(</span><span class='n'>d</span><span class='o'>,</span> <span class='n'>c</span><span class='o'>,</span> <span class='mi'>1000</span><span class='o'>);</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">PellSolver</span> <span class="o">(</span><span class="kt">int</span> <span class="n">d</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxSolution</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">d</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">maxSolution</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='nf'>PellSolver</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>d</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>c</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>maxSolution</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>this</span><span class='o'>.</span><span class='na'>init</span><span class='o'>(</span><span class='n'>d</span><span class='o'>,</span> <span class='n'>c</span><span class='o'>,</span> <span class='n'>maxSolution</span><span class='o'>);</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">(</span><span class="kt">int</span> <span class="n">d</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxSolution</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">now</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Quadratic</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="na">period</span><span class="o">();</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">solvable</span> <span class="o">=</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">period</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">solvable</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="o">.</span><span class="na">prevIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">maxSolution</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">maxSolution</span><span class="o">);</span>
-</span><span class='line'>            <span class="k">this</span><span class="o">.</span><span class="na">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">[</span><span class="n">maxSolution</span> <span class="o">+</span> <span class="mi">10</span><span class="o">];</span>
-</span><span class='line'>            <span class="k">this</span><span class="o">.</span><span class="na">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">[</span><span class="n">maxSolution</span> <span class="o">+</span> <span class="mi">10</span><span class="o">];</span>
-</span><span class='line'>            <span class="n">p</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">q</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">ZERO</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">p</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">q</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>void</span> <span class='nf'>init</span><span class='o'>(</span><span class='kt'>int</span> <span class='n'>d</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>c</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>maxSolution</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>this</span><span class='o'>.</span><span class='na'>d</span> <span class='o'>=</span> <span class='n'>d</span><span class='o'>;</span>
+</span><span class='line'>        <span class='k'>this</span><span class='o'>.</span><span class='na'>c</span> <span class='o'>=</span> <span class='n'>c</span><span class='o'>;</span>
+</span><span class='line'>        <span class='k'>this</span><span class='o'>.</span><span class='na'>now</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>Quadratic</span><span class='o'>(</span><span class='mi'>1</span><span class='o'>,</span> <span class='n'>d</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>1</span><span class='o'>);</span>
+</span><span class='line'>        <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>=</span> <span class='n'>now</span><span class='o'>.</span><span class='na'>period</span><span class='o'>();</span>
+</span><span class='line'>        <span class='k'>this</span><span class='o'>.</span><span class='na'>solvable</span> <span class='o'>=</span> <span class='o'>(</span><span class='n'>c</span> <span class='o'>==</span> <span class='mi'>1</span> <span class='o'>||</span> <span class='n'>c</span> <span class='o'>==</span> <span class='o'>-</span><span class='mi'>1</span> <span class='o'>&amp;&amp;</span> <span class='n'>period</span> <span class='o'>%</span> <span class='mi'>2</span> <span class='o'>==</span> <span class='mi'>1</span><span class='o'>);</span>
+</span><span class='line'>        <span class='k'>if</span> <span class='o'>(</span><span class='n'>solvable</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>            <span class='k'>this</span><span class='o'>.</span><span class='na'>prevIndex</span> <span class='o'>=</span> <span class='mi'>1</span><span class='o'>;</span>
+</span><span class='line'>            <span class='n'>maxSolution</span> <span class='o'>=</span> <span class='n'>Math</span><span class='o'>.</span><span class='na'>max</span><span class='o'>(</span><span class='mi'>1</span><span class='o'>,</span> <span class='n'>maxSolution</span><span class='o'>);</span>
+</span><span class='line'>            <span class='k'>this</span><span class='o'>.</span><span class='na'>p</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>BigInteger</span><span class='o'>[</span><span class='n'>maxSolution</span> <span class='o'>+</span> <span class='mi'>10</span><span class='o'>];</span>
+</span><span class='line'>            <span class='k'>this</span><span class='o'>.</span><span class='na'>q</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>BigInteger</span><span class='o'>[</span><span class='n'>maxSolution</span> <span class='o'>+</span> <span class='mi'>10</span><span class='o'>];</span>
+</span><span class='line'>            <span class='n'>p</span><span class='o'>[</span><span class='mi'>0</span><span class='o'>]</span> <span class='o'>=</span> <span class='n'>q</span><span class='o'>[</span><span class='mi'>1</span><span class='o'>]</span> <span class='o'>=</span> <span class='n'>BigInteger</span><span class='o'>.</span><span class='na'>ZERO</span><span class='o'>;</span>
+</span><span class='line'>            <span class='n'>p</span><span class='o'>[</span><span class='mi'>1</span><span class='o'>]</span> <span class='o'>=</span> <span class='n'>q</span><span class='o'>[</span><span class='mi'>0</span><span class='o'>]</span> <span class='o'>=</span> <span class='n'>BigInteger</span><span class='o'>.</span><span class='na'>ONE</span><span class='o'>;</span>
+</span><span class='line'>        <span class='o'>}</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isSolutionIndex</span> <span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">c</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="k">return</span> <span class="o">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="o">;</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">c</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="k">return</span> <span class="o">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span><span class="o">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span>
-</span><span class='line'>            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">c</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="k">return</span> <span class="o">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="k">this</span><span class="o">.</span><span class="na">period</span><span class="o">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class='kd'>private</span> <span class='kt'>boolean</span> <span class='nf'>isSolutionIndex</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>index</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>if</span> <span class='o'>(</span><span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>%</span> <span class='mi'>2</span> <span class='o'>==</span> <span class='mi'>0</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>            <span class='k'>if</span> <span class='o'>(</span><span class='k'>this</span><span class='o'>.</span><span class='na'>c</span> <span class='o'>==</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>                <span class='k'>return</span> <span class='o'>(</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>%</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='o'>&amp;&amp;</span> <span class='o'>(</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>/</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>&gt;=</span> <span class='mi'>1</span><span class='o'>;</span>
+</span><span class='line'>            <span class='o'>}</span>
+</span><span class='line'>        <span class='o'>}</span> <span class='k'>else</span> <span class='o'>{</span>
+</span><span class='line'>            <span class='k'>if</span> <span class='o'>(</span><span class='k'>this</span><span class='o'>.</span><span class='na'>c</span> <span class='o'>==</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>                <span class='k'>return</span> <span class='o'>(</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>%</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='o'>&amp;&amp;</span> <span class='o'>(</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>/</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>&gt;=</span> <span class='mi'>2</span> <span class='o'>&amp;&amp;</span> <span class='o'>((</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>/</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span><span class='o'>)</span> <span class='o'>%</span> <span class='mi'>2</span> <span class='o'>==</span> <span class='mi'>0</span><span class='o'>;</span>
+</span><span class='line'>            <span class='o'>}</span> <span class='k'>else</span> <span class='k'>if</span> <span class='o'>(</span><span class='k'>this</span><span class='o'>.</span><span class='na'>c</span> <span class='o'>==</span> <span class='o'>-</span><span class='mi'>1</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>                <span class='k'>return</span> <span class='o'>(</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>%</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='o'>&amp;&amp;</span> <span class='o'>(</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>/</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span> <span class='o'>&gt;=</span> <span class='mi'>1</span> <span class='o'>&amp;&amp;</span> <span class='o'>((</span><span class='n'>index</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>/</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>period</span><span class='o'>)</span> <span class='o'>%</span> <span class='mi'>2</span> <span class='o'>==</span> <span class='mi'>1</span><span class='o'>;</span>
+</span><span class='line'>            <span class='o'>}</span>
+</span><span class='line'>        <span class='o'>}</span>
+</span><span class='line'>        <span class='k'>return</span> <span class='kc'>false</span><span class='o'>;</span>
+</span><span class='line'>    <span class='o'>}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="cm">/* Return a solution pair {x, y} */</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">BigInteger</span><span class="o">[]</span> <span class="nf">getNext</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">solvable</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">prevIndex</span><span class="o">;</span> <span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">prevIndex</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="kt">int</span> <span class="n">now_x</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">now</span><span class="o">.</span><span class="na">getInt</span><span class="o">();</span>
-</span><span class='line'>                <span class="k">this</span><span class="o">.</span><span class="na">now</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">now</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
-</span><span class='line'>                <span class="k">this</span><span class="o">.</span><span class="na">p</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">p</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">].</span><span class="na">multiply</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">now_x</span><span class="o">)).</span><span class="na">add</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">p</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">]);</span>
-</span><span class='line'>                <span class="k">this</span><span class="o">.</span><span class="na">q</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">q</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">].</span><span class="na">multiply</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">now_x</span><span class="o">)).</span><span class="na">add</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">q</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">]);</span>
-</span><span class='line'>                <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isSolutionIndex</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
-</span><span class='line'>                    <span class="n">BigInteger</span><span class="o">[]</span> <span class="n">res</span> <span class="o">=</span> <span class="o">{</span><span class="n">p</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">q</span><span class="o">[</span><span class="n">i</span><span class="o">]};</span>
-</span><span class='line'>                    <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
-</span><span class='line'>                <span class="o">}</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="n">BigInteger</span><span class="o">[]</span> <span class="n">res</span> <span class="o">=</span> <span class="o">{</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">ZERO</span><span class="o">,</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">ZERO</span><span class="o">};</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
+</span><span class='line'>    <span class='cm'>/* Return a solution pair {x, y} */</span>
+</span><span class='line'>    <span class='kd'>public</span> <span class='n'>BigInteger</span><span class='o'>[]</span> <span class='nf'>getNext</span><span class='o'>()</span> <span class='o'>{</span>
+</span><span class='line'>        <span class='k'>if</span> <span class='o'>(</span><span class='n'>solvable</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>            <span class='k'>for</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='o'>++</span><span class='k'>this</span><span class='o'>.</span><span class='na'>prevIndex</span><span class='o'>;</span> <span class='o'>;</span> <span class='n'>i</span> <span class='o'>=</span> <span class='o'>++</span><span class='k'>this</span><span class='o'>.</span><span class='na'>prevIndex</span><span class='o'>)</span> <span class='o'>{</span>
+</span><span class='line'>                <span class='kt'>int</span> <span class='n'>now_x</span> <span class='o'>=</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>now</span><span class='o'>.</span><span class='na'>getInt</span><span class='o'>();</span>
+</span><span class='line'>                <span class='k'>this</span><span class='o'>.</span><span class='na'>now</span> <span class='o'>=</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>now</span><span class='o'>.</span><span class='na'>getNext</span><span class='o'>();</span>
+</span><span class='line'>                <span class='k'>this</span><span class='o'>.</span><span class='na'>p</span><span class='o'>[</span><span class='n'>i</span><span class='o'>]</span> <span class='o'>=</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>p</span><span class='o'>[</span><span class='n'>i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>].</span><span class='na'>multiply</span><span class='o'>(</span><span class='n'>BigInteger</span><span class='o'>.</span><span class='na'>valueOf</span><span class='o'>(</span><span class='n'>now_x</span><span class='o'>)).</span><span class='na'>add</span><span class='o'>(</span><span class='k'>this</span><span class='o'>.</span><span class='na'>p</span><span class='o'>[</span><span class='n'>i</span> <span class='o'>-</span> <span class='mi'>2</span><span class='o'>]);</span>
+</span><span class='line'>                <span class='k'>this</span><span class='o'>.</span><span class='na'>q</span><span class='o'>[</span><span class='n'>i</span><span class='o'>]</span> <span class='o'>=</span> <span class='k'>this</span><span class='o'>.</span><span class='na'>q</span><span class='o'>[</span><span class='n'>i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='o'>].</span><span class='na'>multiply</span><span class='o'>(</span><span class='n'>BigInteger</span><span class='o'>.</span><span class='na'>valueOf</span><span class='o'>(</span><span class='n'>now_x</span><span class='o'>)).</span><span class='na'>add</span><span class='o'>(</span><span class='k'>this</span><span class='o'>.</span><span class='na'>q</span><span class='o'>[</span><span class='n'>i</span> <span class='o'>-</span> <span class='mi'>2</span><span class='o'>]);</span>
+</span><span class='line'>                <span class='k'>if</span> <span class='o'>(</span><span class='k'>this</span><span class='o'>.</span><span class='na'>isSolutionIndex</span><span class='o'>(</span><span class='n'>i</span><span class='o'>))</span> <span class='o'>{</span>
+</span><span class='line'>                    <span class='n'>BigInteger</span><span class='o'>[]</span> <span class='n'>res</span> <span class='o'>=</span> <span class='o'>{</span><span class='n'>p</span><span class='o'>[</span><span class='n'>i</span><span class='o'>],</span> <span class='n'>q</span><span class='o'>[</span><span class='n'>i</span><span class='o'>]};</span>
+</span><span class='line'>                    <span class='k'>return</span> <span class='n'>res</span><span class='o'>;</span>
+</span><span class='line'>                <span class='o'>}</span>
+</span><span class='line'>            <span class='o'>}</span>
+</span><span class='line'>        <span class='o'>}</span>
+</span><span class='line'>        <span class='n'>BigInteger</span><span class='o'>[]</span> <span class='n'>res</span> <span class='o'>=</span> <span class='o'>{</span><span class='n'>BigInteger</span><span class='o'>.</span><span class='na'>ZERO</span><span class='o'>,</span> <span class='n'>BigInteger</span><span class='o'>.</span><span class='na'>ZERO</span><span class='o'>};</span>
+</span><span class='line'>        <span class='k'>return</span> <span class='n'>res</span><span class='o'>;</span>
+</span><span class='line'>    <span class='o'>}</span>
+</span><span class='line'><span class='o'>}</span>
+</span></code></pre></td></tr></table></div></figure></div>
 
 
   <footer>

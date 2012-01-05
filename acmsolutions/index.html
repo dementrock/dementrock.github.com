@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Handle Tab Event in Web - DementRock's blog</title>
+  <title>ACM Solutions - DementRock's blog</title>
   <meta name="author" content="DementRock">
 
   
-  <meta name="description" content="Problem Handling tab event can be quite annoying, since most browser processes the event as moving from one focus to another. Therefore usually &# &hellip;">
+  <meta name="description" content="ACM Solutions Jan 5th, 2012 UVa Online Judge 10000 10001 Jan 5th, 2012 Tweet Comments Please enable JavaScript to view the comments powered by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web">
+  <link rel="canonical" href="http://blog.rockyduan.com/acmsolutions">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,15 +78,35 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Handle Tab Event in Web</h1>
-    
-    
+    <h1 class="entry-title">ACM Solutions</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-05T13:19:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time></p>
+  </header>
+  
+  <h2 id='uva_online_judge'>UVa Online Judge</h2>
+
+<p><a href='/acmsolutions/uva/10000.html'>10000</a></p>
+
+<p><a href='/acmsolutions/uva/10001.html'>10001</a></p>
+  
+    <footer>
       <p class="meta">
         
+        
 
 
 
@@ -98,96 +118,21 @@
   
 
 
-<time datetime="2012-01-01T18:54:00+08:00" pubdate data-updated="true">Jan 1<span>st</span>, 2012</time>
+<time datetime="2012-01-05T13:19:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time>
         
       </p>
-    
-  </header>
-
-
-<div class="entry-content"><h2 id='problem'>Problem</h2>
-
-<p>Handling tab event can be quite annoying, since most browser processes the event as moving from one focus to another. Therefore usually &#8220;keypress&#8221; cannot capture the tab key. However a lot of interesting features may depend on this key, including the tab-completion feature I was working on.</p>
-
-<h2 id='solution'>Solution</h2>
-
-<p>If we want to handle the tab event in an input box (assume it has class &#8220;cmdinput&#8221;), put another input box right after it (assume it has class &#8220;hiddentab&#8221;), and set its CSS as:</p>
-<figure class='code'><figcaption><span /></figcaption><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class='nc'>.hiddentab</span> <span class='p'>{</span>
-</span><span class='line'>  <span class='k'>background-color</span><span class='o'>:</span> <span class='nb'>black</span><span class='p'>;</span>
-</span><span class='line'>  <span class='k'>border</span><span class='o'>:</span> <span class='k'>none</span><span class='p'>;</span>
-</span><span class='line'>  <span class='k'>width</span><span class='o'>:</span> <span class='m'>0px</span><span class='p'>;</span>
-</span><span class='line'>  <span class='k'>height</span><span class='o'>:</span> <span class='m'>0px</span><span class='p'>;</span>
-</span><span class='line'>  <span class='k'>padding</span><span class='o'>:</span> <span class='m'>2px</span><span class='p'>;</span> <span class='c'>/* updated Jan.02 */</span>
-</span><span class='line'><span class='p'>}</span>
-</span></code></pre></td></tr></table></div></figure>
-<p>Then we can handle the event using jQuery:</p>
-<figure class='code'><figcaption><span /></figcaption><div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class='nx'>$</span><span class='p'>(</span><span class='s2'>&quot;.hiddentab&quot;</span><span class='p'>).</span><span class='nx'>focus</span> <span class='o'>=</span> <span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span>
-</span><span class='line'>    <span class='nx'>$</span><span class='p'>(</span><span class='s2'>&quot;.cmdinput&quot;</span><span class='p'>).</span><span class='nx'>focus</span><span class='p'>();</span>
-</span><span class='line'>    <span class='nx'>handleTab</span><span class='p'>();</span>
-</span><span class='line'><span class='p'>}</span>
-</span></code></pre></td></tr></table></div></figure></div>
-
-
-  <footer>
-    <p class="meta">
       
+        <div class="sharing">
   
-
-<span class="byline author vcard">Posted by <span class="fn">DementRock</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-01T18:54:00+08:00" pubdate data-updated="true">Jan 1<span>st</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/css/'>CSS</a>, <a class='category' href='/blog/categories/web-development/'>Web Development</a>, <a class='category' href='/blog/categories/jquery/'>jQuery</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/" data-via="" data-counturl="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.rockyduan.com/acmsolutions/index.html" data-via="" data-counturl="http://blog.rockyduan.com/acmsolutions/index.html" >Tweet</a>
   
   
   
 </div>
 
-    
-    <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/12/31/package-pell-eq/" title="Previous Post: A Java Package for Solving Pell's Equation">&laquo; A Java Package for Solving Pell's Equation</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/01/01/2012-begins/" title="next Post: 2012 Begins">2012 Begins &raquo;</a>
-      
-    </p>
-  </footer>
+    </footer>
+  
 </article>
 
   <section>
@@ -272,8 +217,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/';
-        var disqus_url = 'http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/';
+        var disqus_identifier = 'http://blog.rockyduan.com/acmsolutions/index.html';
+        var disqus_url = 'http://blog.rockyduan.com/acmsolutions/index.html';
         var disqus_script = 'embed.js';
       
     (function () {
