@@ -116,6 +116,8 @@ MathJax.Hub.Config({
 <p>Let $f(n)$ denote the number of different trees without labeling. Then $f(n) = \sum_{i=0}^{n-1} f(i)\cdot f(n-1-i)$. For the final answer simply multiply $f(n)$ by $n!$.</p>
 
 <p>Note: I tried the formula $f(n) = n \cdot \sum_{i=0}^{n-1} f(i)\cdot f(n-1-i)$, which won&#8217;t work since the labelings of left and right subtrees are not independent.</p>
+
+<p>P.S. How could I forget that this is the Catalan number&#8230;</p>
 <figure class='code'><figcaption><span> (10007.java)</span> <a href='/downloads/code/acm/uva/10007.java'>download</a></figcaption>
  <div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
 <span class='line-number'>2</span>

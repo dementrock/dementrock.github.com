@@ -5,11 +5,19 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ACM Solutions - DementRock's blog</title>
+  <title>ACM Solutions - UVa 10055 - DementRock's blog</title>
   <meta name="author" content="DementRock">
 
   
-  <meta name="description" content="ACM Solutions Jan 5th, 2012 UVa Online Judge 102 136 272 458 494 10000 10001 10002 10003 10004 10005 10006 10007 10008 10009 10010 10011 10035 10038 &hellip;">
+  <meta name="description" content="ACM Solutions - UVa 10055 Jan 5th, 2012 Easy problem. But I really hate the &#8220;or vice versa&#8221; part. (10055.cpp) download 1
+2
+3
+4
+5
+6
+7
+8
+9 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +26,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.rockyduan.com/acmsolutions">
+  <link rel="canonical" href="http://blog.rockyduan.com/acmsolutions/uva/10055.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -95,7 +103,7 @@ MathJax.Hub.Config({
 <article role="article">
   
   <header>
-    <h1 class="entry-title">ACM Solutions</h1>
+    <h1 class="entry-title">ACM Solutions - UVa 10055</h1>
     <p class="meta">
 
 
@@ -111,53 +119,45 @@ MathJax.Hub.Config({
 <time datetime="2012-01-05T13:19:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2012</time></p>
   </header>
   
-  <h2 id='uva_online_judge'>UVa Online Judge</h2>
-
-<p><a href='/acmsolutions/uva/102.html'>102</a></p>
-
-<p><a href='/acmsolutions/uva/136.html'>136</a></p>
-
-<p><a href='/acmsolutions/uva/272.html'>272</a></p>
-
-<p><a href='/acmsolutions/uva/458.html'>458</a></p>
-
-<p><a href='/acmsolutions/uva/494.html'>494</a></p>
-
-<p><a href='/acmsolutions/uva/10000.html'>10000</a></p>
-
-<p><a href='/acmsolutions/uva/10001.html'>10001</a></p>
-
-<p><a href='/acmsolutions/uva/10002.html'>10002</a></p>
-
-<p><a href='/acmsolutions/uva/10003.html'>10003</a></p>
-
-<p><a href='/acmsolutions/uva/10004.html'>10004</a></p>
-
-<p><a href='/acmsolutions/uva/10005.html'>10005</a></p>
-
-<p><a href='/acmsolutions/uva/10006.html'>10006</a></p>
-
-<p><a href='/acmsolutions/uva/10007.html'>10007</a></p>
-
-<p><a href='/acmsolutions/uva/10008.html'>10008</a></p>
-
-<p><a href='/acmsolutions/uva/10009.html'>10009</a></p>
-
-<p><a href='/acmsolutions/uva/10010.html'>10010</a></p>
-
-<p><a href='/acmsolutions/uva/10011.html'>10011</a></p>
-
-<p><a href='/acmsolutions/uva/10035.html'>10035</a></p>
-
-<p><a href='/acmsolutions/uva/10038.html'>10038</a></p>
-
-<p><a href='/acmsolutions/uva/10055.html'>10055</a></p>
-
-<p><a href='/acmsolutions/uva/10071.html'>10071</a></p>
-
-<p><a href='/acmsolutions/uva/10018.html'>10018</a></p>
-
-<p><a href='/acmsolutions/uva/10300.html'>10300</a></p>
+  <p>Easy problem. But I really hate the &#8220;or vice versa&#8221; part.</p>
+<figure class='code'><figcaption><span> (10055.cpp)</span> <a href='/downloads/code/acm/uva/10055.cpp'>download</a></figcaption>
+ <div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class='cp'>#include &lt;iostream&gt;</span>
+</span><span class='line'><span class='cp'>#include &lt;string&gt;</span>
+</span><span class='line'><span class='cp'>#include &lt;vector&gt;</span>
+</span><span class='line'><span class='cp'>#include &lt;algorithm&gt;</span>
+</span><span class='line'><span class='cp'>#include &lt;cmath&gt;</span>
+</span><span class='line'><span class='cp'>#include &lt;stdio.h&gt;</span>
+</span><span class='line'><span class='cp'>#include &lt;stdlib.h&gt;</span>
+</span><span class='line'><span class='cp'>#include &lt;string.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class='k'>using</span> <span class='k'>namespace</span> <span class='n'>std</span><span class='p'>;</span>
+</span><span class='line'>
+</span><span class='line'><span class='kt'>int</span> <span class='n'>main</span><span class='p'>()</span> <span class='p'>{</span>
+</span><span class='line'>    <span class='kt'>long</span> <span class='kt'>long</span> <span class='n'>a</span><span class='p'>,</span> <span class='n'>b</span><span class='p'>;</span>
+</span><span class='line'>    <span class='k'>while</span> <span class='p'>(</span><span class='n'>cin</span> <span class='o'>&gt;&gt;</span> <span class='n'>a</span> <span class='o'>&gt;&gt;</span> <span class='n'>b</span><span class='p'>)</span> <span class='p'>{</span>
+</span><span class='line'>        <span class='n'>cout</span> <span class='o'>&lt;&lt;</span> <span class='n'>abs</span><span class='p'>(</span><span class='n'>b</span> <span class='o'>-</span> <span class='n'>a</span><span class='p'>)</span> <span class='o'>&lt;&lt;</span> <span class='n'>endl</span><span class='p'>;</span>
+</span><span class='line'>    <span class='p'>}</span>
+</span><span class='line'>    <span class='k'>return</span> <span class='mi'>0</span><span class='p'>;</span>
+</span><span class='line'><span class='p'>}</span>
+</span></code></pre></td></tr></table></div></figure>
   
     <footer>
       <p class="meta">
@@ -180,7 +180,7 @@ MathJax.Hub.Config({
       
         <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.rockyduan.com/acmsolutions/index.html" data-via="" data-counturl="http://blog.rockyduan.com/acmsolutions/index.html" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.rockyduan.com/acmsolutions/uva/10055.html" data-via="" data-counturl="http://blog.rockyduan.com/acmsolutions/uva/10055.html" >Tweet</a>
   
   
   
@@ -277,8 +277,8 @@ MathJax.Hub.Config({
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.rockyduan.com/acmsolutions/index.html';
-        var disqus_url = 'http://blog.rockyduan.com/acmsolutions/index.html';
+        var disqus_identifier = 'http://blog.rockyduan.com/acmsolutions/uva/10055.html';
+        var disqus_url = 'http://blog.rockyduan.com/acmsolutions/uva/10055.html';
         var disqus_script = 'embed.js';
       
     (function () {
