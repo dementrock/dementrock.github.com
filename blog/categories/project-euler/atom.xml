@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Project Euler | DementRock's blog]]></title>
   <link href="http://blog.rockyduan.com/blog/categories/project-euler/atom.xml" rel="self"/>
   <link href="http://blog.rockyduan.com/"/>
-  <updated>2012-01-09T11:16:59+08:00</updated>
+  <updated>2012-01-29T23:07:27-08:00</updated>
   <id>http://blog.rockyduan.com/</id>
   <author>
     <name><![CDATA[DementRock]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[A Java Package for Solving Pell's Equation]]></title>
     <link href="http://blog.rockyduan.com/blog/2011/12/31/package-pell-eq/"/>
-    <updated>2011-12-31T12:35:00+08:00</updated>
+    <updated>2011-12-31T12:35:00-08:00</updated>
     <id>http://blog.rockyduan.com/blog/2011/12/31/package-pell-eq</id>
     <content type="html"><![CDATA[<p>While working on Project Euler problems, I&#8217;ve encountered many problems which make use of Pell&#8217;s Equation. Therefore I created this package to write these programs more conveniently.</p>
 

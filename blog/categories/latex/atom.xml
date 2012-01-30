@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LaTeX | DementRock's blog]]></title>
   <link href="http://blog.rockyduan.com/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://blog.rockyduan.com/"/>
-  <updated>2012-01-09T11:16:59+08:00</updated>
+  <updated>2012-01-29T23:07:27-08:00</updated>
   <id>http://blog.rockyduan.com/</id>
   <author>
     <name><![CDATA[DementRock]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[A Trick for LaTeX]]></title>
     <link href="http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex/"/>
-    <updated>2012-01-05T16:33:00+08:00</updated>
+    <updated>2012-01-05T16:33:00-08:00</updated>
     <id>http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex</id>
     <content type="html"><![CDATA[<p>After using LaTeX to do homework for a semester, I created many shortcuts that make it much easier for me to type complicated formula. Here I share one of my tricks which can be easily generalized.</p>
 

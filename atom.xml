@@ -4,7 +4,7 @@
   <title><![CDATA[DementRock's blog]]></title>
   <link href="http://blog.rockyduan.com/atom.xml" rel="self"/>
   <link href="http://blog.rockyduan.com/"/>
-  <updated>2012-01-09T11:16:59+08:00</updated>
+  <updated>2012-01-29T23:07:27-08:00</updated>
   <id>http://blog.rockyduan.com/</id>
   <author>
     <name><![CDATA[DementRock]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[A Trick for LaTeX]]></title>
     <link href="http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex/"/>
-    <updated>2012-01-05T16:33:00+08:00</updated>
+    <updated>2012-01-05T16:33:00-08:00</updated>
     <id>http://blog.rockyduan.com/blog/2012/01/05/a-trick-for-latex</id>
     <content type="html"><![CDATA[<p>After using LaTeX to do homework for a semester, I created many shortcuts that make it much easier for me to type complicated formula. Here I share one of my tricks which can be easily generalized.</p>
 
@@ -46,7 +46,7 @@
   <entry>
     <title type="html"><![CDATA[2012 Begins]]></title>
     <link href="http://blog.rockyduan.com/blog/2012/01/01/2012-begins/"/>
-    <updated>2012-01-01T20:01:00+08:00</updated>
+    <updated>2012-01-01T20:01:00-08:00</updated>
     <id>http://blog.rockyduan.com/blog/2012/01/01/2012-begins</id>
     <content type="html"><![CDATA[<p>I haven&#8217;t written such a thing as an annual summary for a very long time. It&#8217;s not that I&#8217;ve been busy, but I&#8217;m simply too lazy to write down these words. Instead I&#8217;ve too often kept these thoughts inside my head only.</p>
 
@@ -116,7 +116,7 @@
   <entry>
     <title type="html"><![CDATA[Handle Tab Event in Web]]></title>
     <link href="http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web/"/>
-    <updated>2012-01-01T18:54:00+08:00</updated>
+    <updated>2012-01-01T18:54:00-08:00</updated>
     <id>http://blog.rockyduan.com/blog/2012/01/01/handle-tab-event-in-web</id>
     <content type="html"><![CDATA[<h2 id='problem'>Problem</h2>
 
@@ -155,7 +155,7 @@
   <entry>
     <title type="html"><![CDATA[A Java Package for Solving Pell's Equation]]></title>
     <link href="http://blog.rockyduan.com/blog/2011/12/31/package-pell-eq/"/>
-    <updated>2011-12-31T12:35:00+08:00</updated>
+    <updated>2011-12-31T12:35:00-08:00</updated>
     <id>http://blog.rockyduan.com/blog/2011/12/31/package-pell-eq</id>
     <content type="html"><![CDATA[<p>While working on Project Euler problems, I&#8217;ve encountered many problems which make use of Pell&#8217;s Equation. Therefore I created this package to write these programs more conveniently.</p>
 <figure class='code'><figcaption><span> (PellSolver.java)</span> <a href='http://blog.rockyduan.com/downloads/code/PellSolver.java'>download</a></figcaption>
